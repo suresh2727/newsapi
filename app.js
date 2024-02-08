@@ -10,24 +10,19 @@ const discon = document.querySelector(".news-card");
 async function processData() {
   // Await the result of the asynchronous operation
   const response = await fetch(apiurl + `&apiKey=${apikey}`);
-  if (response.status == 200) {
-    document.querySelector(".news-card").style.display = "block";
-    var data = await response.json();
-    console.log(data);
-    var articlesnumber = Math.floor(Math.random(parseInt(data.articles)) * 20);
 
-    document.querySelector(".news-title").innerHTML =
-      data.articles[articlesnumber].author;
-    document.querySelector(".news-details").innerHTML =
-      data.articles[articlesnumber].description;
+  document.querySelector(".news-card").style.display = "block";
+  var data = await response.json();
+  console.log(data);
+  var articlesnumber = Math.floor(Math.random(parseInt(data.articles)) * 20);
 
-    var image = document.getElementById("news-img");
-    image.src = data.articles[articlesnumber].urlToImage;
-  } else {
-    console.log("hello");
-    document.querySelector(".news-card").style.display = "none";
-    alert("Problem in the API");
-  }
+  document.querySelector(".news-title").innerHTML =
+    data.articles[articlesnumber].author;
+  document.querySelector(".news-details").innerHTML =
+    data.articles[articlesnumber].description;
+
+  var image = document.getElementById("news-img");
+  image.src = data.articles[articlesnumber].urlToImage;
 
   // Further processing with the received data
 }
