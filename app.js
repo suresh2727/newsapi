@@ -1,6 +1,7 @@
 const apikey = "4ec3fc431c9a423d90bcc5aaa2832282";
 const apiurl =
   "https://newsapi.org/v2/top-headlines?country=in&category=technology";
+//   "https://newsapi.org/v2/everything?domains=wsj.com";
 
 const searchbtn = document.querySelector(".btn");
 const newsImage = document.querySelector(".new-img");
@@ -14,12 +15,15 @@ async function processData() {
   document.querySelector(".news-card").style.display = "block";
   var data = await response.json();
   console.log(data);
-  var articlesnumber = Math.floor(Math.random(parseInt(data.articles)) * 20);
+
+  var articlesnumber = Math.floor(Math.random(parseInt(data.articles)) * 10);
+  let data_length = data.articles.length;
+  console.log(data_length);
 
   document.querySelector(".news-title").innerHTML =
     data.articles[articlesnumber].author;
   document.querySelector(".news-details").innerHTML =
-    data.articles[articlesnumber].description;
+    data.articles[articlesnumber].content;
 
   var image = document.getElementById("news-img");
   image.src = data.articles[articlesnumber].urlToImage;
@@ -30,3 +34,5 @@ searchbtn.addEventListener("click", () => {
   processData();
   console.log("btn clicked");
 });
+
+

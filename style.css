@@ -9,6 +9,14 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: rgb(9, 9, 9);
+  overflow: hidden;
+}
+
+.cat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 40px 0px;
 }
 
 h1 {
@@ -72,6 +80,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 100px;
 }
 
 @media (max-width: 540px) {
@@ -79,6 +88,14 @@ h1 {
     width: inherit;
     height: inherit;
     margin: 10px 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .cat {
+    flex-wrap: wrap;
+    padding: 10px 0px;
+    gap: 1rem;
   }
 }
 
@@ -96,7 +113,27 @@ h1 {
   margin-bottom: 15px;
 }
 
-button {
+.cat button {
+  padding: 5px 15px;
+  text-transform: uppercase;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  box-shadow: 5px 8px 2px 2px red;
+  transition: ease-in-out 1s;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cat button:hover {
+  box-shadow: 5px -8px 2px 2px green;
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.btn {
   padding: 5px 15px;
   margin-left: 45%;
   margin-top: 30px;
@@ -108,10 +145,13 @@ button {
   outline: none;
   background-color: white;
   color: black;
-  box-shadow: 6px -5px 2px 2px red;
+  box-shadow: 5px 8px 2px 2px red;
   transition: ease-in-out 1s;
+  cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
+  box-shadow: 5px -8px 2px 2px green;
   transform: scale(1.1);
+  opacity: 1;
 }
